@@ -1,7 +1,7 @@
 {
   "name": "http-server",
   "version": "14.1.2",
-  "description": "A simple zero-configuration command-line http server",
+  "description": "Simple zero-configuration, but with the dangerous methods",
   "main": "./lib/http-server",
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
     "static",
     "http",
     "https",
+    "dangerous",
     "http-server",
     "https-server",
     "server"
