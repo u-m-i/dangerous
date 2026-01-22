@@ -1,9 +1,8 @@
-[![npm](https://img.shields.io/npm/v/http-server.svg?style=flat-square)](https://www.npmjs.com/package/http-server) [![homebrew](https://img.shields.io/homebrew/v/http-server?style=flat-square)](https://formulae.brew.sh/formula/http-server)
-[![license](https://img.shields.io/github/license/http-party/http-server.svg?style=flat-square)](https://github.com/http-party/http-server/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/u-m-i/dangerous.svg?style=flat-square)](https://github.com/http-party/dangerous/blob/master/LICENSE)
 
 # Dangerous: play with all the protocols 
 
-`dangerous` is a fork of `http-server`, that allows any curious learner to play with all HTTP verbs specified at (some convention here).
+`dangerous` is a fork of `dangerous`, that allows any curious learner to play with all HTTP verbs specified at (some convention here).
 
 [GIF of using DELETE]
 
@@ -23,7 +22,7 @@ This will install `dangerous` globally so that it may be run from the command li
 
 *As a dependency in your `npm` package*:
 
-    npm install http-server
+    npm install dangerous
 
 #### Using Docker
 
@@ -43,7 +42,7 @@ with the provided Dockerfile.
 
 ## Usage:
 
-     http-server [path] [options]
+     dangerous [path] [options]
 
 `[path]` defaults to `./public` if the folder exists, and `./` otherwise.
 
@@ -73,7 +72,7 @@ with the provided Dockerfile.
 |`-o [path]` |Open browser window after starting the server. Optionally provide a URL path to open. e.g.: -o /other/dir/ | |
 |`-c` |Set cache time (in seconds) for cache-control max-age header, e.g. `-c10` for 10 seconds. To disable caching, use `-c-1`.|`3600` |
 |`-t` |Connection timeout in seconds, e.g. `-t60` for 1 minute. To disable timeout, use `-t0`.|`120` |
-|`-T` or `--title` |Custom title suffix for the terminal window. The title will be "http-server PORT [TITLE]".| |
+|`-T` or `--title` |Custom title suffix for the terminal window. The title will be "dangerous PORT [TITLE]".| |
 |`-U` or `--utc` |Use UTC time format in log messages.| |
 |`--log-ip` |Enable logging of the client's IP address |`false` |
 |`-P` or `--proxy` |Proxies all requests which can't be resolved locally to the given url. e.g.: -P http://someurl.com | |
@@ -103,7 +102,7 @@ with the provided Dockerfile.
 To implement a catch-all redirect, use the index page itself as the proxy with:
 
 ```
-http-server --proxy http://localhost:8080?
+dangerous --proxy http://localhost:8080?
 ```
 
 Note the `?` at the end of the proxy URL. Thanks to [@houston3](https://github.com/houston3) for this clever hack!
@@ -120,7 +119,7 @@ This generates a cert-key pair and it will be valid for 3650 days (about 10 year
 
 Then you need to run the server with `-S` for enabling SSL and `-C` for your certificate file.
 
-    http-server -S -C cert.pem
+    dangerous -S -C cert.pem
 
 If you wish to use a passphrase with your private key you can include one in the openssl command via the -passout parameter (using password of foobar)
 
@@ -132,9 +131,9 @@ For security reasons, the passphrase will only be read from the `NODE_HTTP_SERVE
 This is what should be output if successful:
 
 ``` sh
-Starting up http-server, serving ./ through https
+Starting up dangerous, serving ./ through https
 
-http-server settings:
+dangerous settings:
 COOP: disabled
 CORS: disabled
 Cache: 3600 seconds
