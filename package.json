@@ -1,11 +1,11 @@
 {
-  "name": "http-server",
+  "name": "dangerous",
   "version": "14.1.2",
   "description": "Simple zero-configuration, but with the dangerous methods",
-  "main": "./lib/http-server",
+  "main": "./lib/dangerous",
   "repository": {
     "type": "git",
-    "url": "git://github.com/http-party/http-server.git"
+    "url": "git://github.com/http-party/dangerous.git"
   },
   "keywords": [
     "cli",
@@ -14,12 +14,12 @@
     "http",
     "https",
     "dangerous",
-    "http-server",
+    "dangerous",
     "https-server",
     "server"
   ],
   "scripts": {
-    "start": "node ./bin/http-server",
+    "start": "node ./bin/dangerous",
     "test": "tap --reporter=terse --allow-incomplete-coverage test/*.test.js",
     "test-watch": "tap --reporter=terse --allow-incomplete-coverage --watch test/*.test.js"
   },
@@ -28,7 +28,7 @@
     "bin",
     "doc"
   ],
-  "man": "./doc/http-server.1",
+  "man": "./doc/dangerous.1",
   "engines": {
     "node": ">=16.20.2"
   },
@@ -114,11 +114,11 @@
     "tap": "^21.0.1"
   },
   "bugs": {
-    "url": "https://github.com/http-party/http-server/issues"
+    "url": "https://github.com/http-party/dangerous/issues"
   },
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "http-server": "./bin/http-server"
+    "dangerous": "./bin/dangerous"
   }
 }
