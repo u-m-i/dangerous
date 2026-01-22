@@ -1,32 +1,27 @@
-[![GitHub Workflow Status (master)](https://img.shields.io/github/actions/workflow/status/http-party/http-server/node.js.yml?style=flat-square&branch=master)](https://github.com/http-party/http-server/actions)
-[![npm](https://img.shields.io/npm/v/http-server.svg?style=flat-square)](https://www.npmjs.com/package/http-server) [![homebrew](https://img.shields.io/homebrew/v/http-server?style=flat-square)](https://formulae.brew.sh/formula/http-server) [![npm downloads](https://img.shields.io/npm/dm/http-server?color=blue&label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/http-server)
+[![npm](https://img.shields.io/npm/v/http-server.svg?style=flat-square)](https://www.npmjs.com/package/http-server) [![homebrew](https://img.shields.io/homebrew/v/http-server?style=flat-square)](https://formulae.brew.sh/formula/http-server)
 [![license](https://img.shields.io/github/license/http-party/http-server.svg?style=flat-square)](https://github.com/http-party/http-server/blob/master/LICENSE)
 
-# http-server: a simple static HTTP server
+# Dangerous: play with all the protocols 
 
-`http-server` is a simple, zero-configuration command-line static HTTP server.  It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, local development and learning.
+`dangerous` is a fork of `http-server`, that allows any curious learner to play with all HTTP verbs specified at (some convention here).
 
-![Example of running http-server](https://github.com/http-party/http-server/raw/master/screenshots/public.png)
+[GIF of using DELETE]
 
-## Installation:
+## Installation
 
-#### Running on-demand:
+*Running on-demand*:
 
 Using `npx` you can run the script without installing it first:
 
-    npx http-server [path] [options]
+    npx dangerous [path] [options]
 
-#### Globally via `npm`
+*Globally via `npm`*:
 
-    npm install --global http-server
+    npm install --global dangerous 
 
-This will install `http-server` globally so that it may be run from the command line anywhere.
+This will install `dangerous` globally so that it may be run from the command line anywhere.
 
-#### Globally via Homebrew
-
-    brew install http-server
-     
-#### As a dependency in your `npm` package:
+*As a dependency in your `npm` package*:
 
     npm install http-server
 
@@ -56,7 +51,7 @@ with the provided Dockerfile.
 
 **Note:** Caching is on by default. Add `-c-1` as an option to disable caching.
 
-## Available Options:
+## Available Options
 
 | Command         | 	Description         | Defaults  |
 | -------------  |-------------|-------------|
@@ -117,9 +112,7 @@ Note the `?` at the end of the proxy URL. Thanks to [@houston3](https://github.c
 
 First, you need to make sure that [openssl](https://github.com/openssl/openssl) is installed correctly, and you have `key.pem` and `cert.pem` files. You can generate them using this command:
 
-``` sh
-openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
-```
+    openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 
 You will be prompted with a few questions after entering the command. Use `127.0.0.1` as value for `Common name` if you want to be able to install the certificate in your OS's root certificate store or browser so that it is trusted.
 
@@ -127,18 +120,14 @@ This generates a cert-key pair and it will be valid for 3650 days (about 10 year
 
 Then you need to run the server with `-S` for enabling SSL and `-C` for your certificate file.
 
-``` sh
-http-server -S -C cert.pem
-```
+    http-server -S -C cert.pem
 
 If you wish to use a passphrase with your private key you can include one in the openssl command via the -passout parameter (using password of foobar)
-
 
 e.g.
 `openssl req -newkey rsa:2048 -passout pass:foobar -keyout key.pem -x509 -days 365 -out cert.pem`
 
 For security reasons, the passphrase will only be read from the `NODE_HTTP_SERVER_SSL_PASSPHRASE` environment variable.
-
 
 This is what should be output if successful:
 

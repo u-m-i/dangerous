@@ -1,8 +1,8 @@
-FROM node:16-alpine
+FROM node:22-alpine
 VOLUME /public
-WORKDIR /srv/http-server
+WORKDIR /srv/dangerous
 COPY package.json package-lock.json ./
 RUN npm install --production
 COPY . .
 EXPOSE 8080
-ENTRYPOINT ["node", "./bin/http-server"]
+ENTRYPOINT ["node", "./bin/dangerous"]
