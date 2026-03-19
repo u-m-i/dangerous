@@ -1,6 +1,10 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
+title: Cool Feature Pascal Case
+labels: ''
+assignees: ''
+
 ---
 
 #### What's the problem this feature will solve?
