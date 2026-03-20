@@ -1,6 +1,6 @@
 {
   "name": "dangerous",
-  "version": "14.1.2",
+  "version": "0.1.0",
   "description": "Simple zero-configuration, but with the dangerous methods",
   "main": "./lib/dangerous",
   "repository": {
@@ -14,14 +14,12 @@
     "http",
     "https",
     "dangerous",
-    "dangerous",
-    "https-server",
     "server"
   ],
   "scripts": {
-    "start": "node ./bin/dangerous",
+    "start": "node ./lib/dangerous.js",
     "test": "tap --reporter=terse --allow-incomplete-coverage test/*.test.js",
-    "test-watch": "tap --reporter=terse --allow-incomplete-coverage --watch test/*.test.js"
+    "test-watch": "tap -- --reporter=terse --allow-incomplete-coverage --watch test/*.test.js"
   },
   "files": [
     "lib",
@@ -107,10 +105,7 @@
   },
   "devDependencies": {
     "eol": "^0.9.1",
-    "eslint": "^4.19.1",
-    "eslint-config-populist": "^4.2.0",
-    "express": "^4.17.1",
-    "request": "^2.88.2",
+    "express": "^5.2.1",
     "tap": "^21.0.1"
   },
   "bugs": {

@@ -3,7 +3,6 @@
 const test = require('tap').test;
 const ecstatic = require('../lib/core');
 const http = require('http');
-const request = require('request');
 
 test('malformed uri', (t) => {
   const server = http.createServer(ecstatic(__dirname));
@@ -11,11 +10,13 @@ test('malformed uri', (t) => {
   t.plan(2);
 
   server.listen(0, () => {
-    request.get(`http://localhost:${server.address().port}/%`, (err, res) => {
-      t.error(err);
-      t.equal(res.statusCode, 400);
-      server.close(() => { t.end(); });
-    });
+    fetch(`http://localhost:${server.address().port}/%`).then(
+      (response) => {
+        t.ok(response);
+        t.equal(response.status, 400);
+        server.close(() => { t.end(); });
+      }
+    );
   });
 });
 
