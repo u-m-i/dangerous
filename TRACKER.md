@@ -1,8 +1,13 @@
 # Motives
 
 1. Do not update the code to ESM6 unless proveen necessary,
-2. Update deprecated libraries,
+2. Update deprecated libraries and use newer and safer ones,
 3. Try to be greedy keeping all the http-server feature.
+
+## Tasks
+
+1. Rewrite all the tests replacing `request` by `fetch`
+2. Add the DELETE, PUT command
 
 ## Renewal
 
@@ -26,14 +31,13 @@ Libraries for production
 +-- secure-compare@3.0.1
 +-- union@0.5.0
 `-- url-join@4.0.1
-
-tough-cookie → moderate (prototype pollution)
 brace-expansion → high (ReDoS)
 minimatch → high (ReDoS)
 
 Libraries used for testing or developement (not production)
 
 request → critical (SSRF + deprecated)
+  tough-cookie → moderate (prototype pollution)
 express → high (ReDoS)
 
 path-to-regexp → high (ReDoS)
@@ -41,3 +45,9 @@ lodash → moderate (prototype pollution)
 qs → moderate (querystring DoS)
 form-data → critical (unsafe randomness)
 tap
+
+### Resources
+
+*tap*
+
+[Basics](https://node-tap.org/basics/#%22zero-patience-just-get-going%22-guide)
