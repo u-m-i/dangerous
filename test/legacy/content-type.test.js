@@ -2,7 +2,7 @@
 
 const test = require('tap').test;
 const http = require('http');
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core/index.js');
 const checkHeaders = require('./check-headers.js');
 
 const root = `${__dirname}/public/`;

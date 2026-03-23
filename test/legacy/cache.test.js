@@ -3,7 +3,7 @@
 const test = require('tap').test;
 const http = require('http');
 const request = require('request');
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 
 test('custom cache option number', (t) => {
   let server = null;

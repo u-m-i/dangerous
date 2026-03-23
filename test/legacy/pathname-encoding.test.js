@@ -1,7 +1,7 @@
 'use strict';
 
 const tap = require('tap');
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const http = require('http');
 const request = require('request');
 const path = require('path');

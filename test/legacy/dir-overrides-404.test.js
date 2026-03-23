@@ -2,9 +2,9 @@
 
 const test = require('tap').test;
 const http = require('http');
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const request = require('request');
-const showDir = require('../lib/core/show-dir');
+const showDir = require('../../lib/core/show-dir');
 
 const root = `${__dirname}/public/dir-overrides-404`;
 

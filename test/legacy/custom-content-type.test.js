@@ -3,14 +3,16 @@
 const test = require('tap').test;
 const http = require('http');
 const request = require('request');
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 
-test('custom contentType via .types file', (t) => {
+test('custom contentType', (t) => {
   let server = null;
   try {
     server = http.createServer(ecstatic({
       root: `${__dirname}/public/`,
-      mimetypes: `${__dirname}/fixtures/custom_mime_type.types`,
+      mimetype: {
+        'application/jon': ['opml'],
+      },
     }));
   } catch (e) {
     t.fail(e.message);
@@ -24,7 +26,7 @@ test('custom contentType via .types file', (t) => {
     request.get(`http://localhost:${port}/custom_mime_type.opml`, (err, res) => {
       t.error(err);
       t.equal(res.statusCode, 200, 'custom_mime_type.opml should be found');
-      t.equal(res.headers['content-type'], 'application/secret');
+      t.equal(res.headers['content-type'], 'application/jon');
       server.close(() => { t.end(); });
     });
   });

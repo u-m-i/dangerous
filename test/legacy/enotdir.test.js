@@ -1,22 +1,20 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const http = require('http');
 const request = require('request');
-const eol = require('eol');
 
-test('default defaultExt', (t) => {
+test('should handle ENOTDIR as 404', (t) => {
   t.plan(3);
   const server = http.createServer(ecstatic(`${__dirname}/public/subdir`));
-
+  t.on('end', () => { server.close(); });
   server.listen(0, () => {
     const port = server.address().port;
-    request.get(`http://localhost:${port}`, (err, res, body) => {
+    request.get(`http://localhost:${port}/index.html/hello`, (err, res, body) => {
       t.error(err);
-      t.equal(res.statusCode, 200);
-      t.equal(eol.lf(body), 'index!!!\n');
-      server.close(() => { t.end(); });
+      t.equal(res.statusCode, 404);
+      t.equal(body, 'File not found. :(');
     });
   });
 });

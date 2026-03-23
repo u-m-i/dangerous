@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const http = require('http');
 const request = require('request');
 const path = require('path');
@@ -11,7 +11,7 @@ const baseDir = 'base';
 
 require('fs').mkdirSync(`${root}/emptyDir`, {recursive: true});
 
-const cases = require('./fixtures/common-cases-error');
+const cases = require('../fixtures/common-cases-error');
 
 test('core', (t) => {
   require('portfinder').getPort((err, port) => {

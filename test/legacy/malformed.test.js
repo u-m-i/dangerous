@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const http = require('http');
 
 test('malformed uri', (t) => {

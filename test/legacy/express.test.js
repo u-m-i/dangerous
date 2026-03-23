@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../lib/core');
+const ecstatic = require('../../lib/core');
 const http = require('http');
 const express = require('express');
 const request = require('request');
@@ -13,7 +13,7 @@ const baseDir = 'base';
 
 require('fs').mkdirSync(`${root}/emptyDir`, {recursive: true});
 
-const cases = require('./fixtures/common-cases');
+const cases = require('../fixtures/common-cases');
 
 test('express', (t) => {
   const filenames = Object.keys(cases);
