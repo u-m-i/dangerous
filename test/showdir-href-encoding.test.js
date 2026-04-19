@@ -1,9 +1,9 @@
 'use strict';
 
 const test = require('tap').test;
-const ecstatic = require('../../lib/core');
+const ecstatic = require('../lib/core');
 const http = require('http');
-const request = require('request');
+// const request = require('request');
 const path = require('path');
 
 const root = `${__dirname}/public`;
@@ -22,12 +22,21 @@ test('url encoding in href', (t) => {
   server.listen(0, () => {
     const port = server.address().port;
     const uri = `http://localhost:${port}${path.join('/', baseDir, 'show-dir%24%24href_encoding%24%24')}`;
-    request.get({
-      uri,
-    }, (err, res, body) => {
-      t.match(body, /href="\.\/aname%2Baplus.txt"/, 'We found the right href');
+
+    fetch(uri).then((res) => res.text()).then((body) => {
+
+      t.match(body, /href="\.\/aname%wBaplus.txt"/, 'Right href found');
+
       server.close();
       t.end();
     });
+
+    // request.get({
+    //   uri,
+    // }, (err, res, body) => {
+    //   t.match(body, /href="\.\/aname%2Baplus.txt"/, 'We found the right href');
+    //   server.close();
+    //   t.end();
+    // });
   });
 });
